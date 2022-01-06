@@ -1,13 +1,25 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-int[] dice;
-dice = new int[6];
+int[] faces = new int[13];
+string[] suits = {"Club","Diamonds","Hearts","Spades"};
+string[] cards = new string[52];
+int counter = 0;
 
-Random rand = new Random();
-for (int i = 0; i < 6; i++)
+
+for (int face  = 0; face < faces.Length; face ++) 
 {
-    dice[i] = rand.Next();
-    Console.WriteLine(rand.Next(i));
+    faces[face] = face + 1;
 }
 
-Console.ReadKey();
+for (int suit = 0; suit < suits.Length; suit++) 
+{
+    for (int index = 0; index < faces.Length; index++)
+    {
+        cards[counter] = faces[index].ToString() + "of" + suits[suit]; 
+        Console.WriteLine(cards[counter]);
+        counter++;
+    }
+} 
+
+
+Console.ReadKey(); 
