@@ -5,7 +5,6 @@ string[] suits = {"Club","Diamonds","Hearts","Spades"};
 string[] cards = new string[52];
 int counter = 0;
 
-
 for (int face  = 0; face < faces.Length; face ++) 
 {
     faces[face] = (face + 1).ToString();
@@ -46,20 +45,17 @@ for (int suit = 0; suit < suits.Length; suit++)
 
 
     cards[counter] = faces[index].ToString() + "of " + suits[suit]; 
-        Console.WriteLine(cards[counter]);
         counter++;
         }
 }
+
+foreach (string card in cards) 
+{
+    Console.WriteLine(card);
+}
 Console.WriteLine();
 Random rand = new Random();
-
-for (int i = 0; i < 6; i++)
-{
-    int randomIndex = rand.Next(cards.Length);
-    Console.WriteLine(cards[randomIndex]);
-}
-
-
-
-
+int randomCardIndex = rand.Next(52);
+Console.WriteLine("Randomly draw a card:");
+Console.WriteLine(cards[randomCardIndex]);
 Console.ReadKey(); 
