@@ -47,23 +47,30 @@ Console.WriteLine();
 
 // Finding the place of a card that user inputs
 // prompt a card that user want to find
-Console.WriteLine("Enter the card you want to find");
-findCard = Console.ReadLine();
-// using foreach loop to go through everysinge element in deckOfCard[]
-foreach(string card in deckOfCards) 
+
+while (foundCard == false) 
 {
-    // using if statement to check
-    if (findCard == deckOfCards[position])
-    { 
-        Console.WriteLine("{0} is located at {1}th position of the deck",card,position + 1);
-        foundCard = true;
+    Console.WriteLine("Enter the card you want to find");
+    findCard = Console.ReadLine();
+    // using foreach loop to go through everysinge element in deckOfCard[]
+    foreach (string card in deckOfCards)
+    {
+        // using if statement to check
+        if (findCard == deckOfCards[position])
+        {
+            Console.WriteLine("{0} is located at {1}th position of the deck", card, position + 1);
+            foundCard = true;
+            break;
+        }
+        position++;
     }
-    position++;
+
+    if (foundCard == false)
+    {
+        Console.WriteLine("card not found");
+        position = 0;
+    }
 }
 
-if (foundCard == false) 
-{
-    Console.WriteLine("card not found");
-}
 
 Console.ReadKey(); 
